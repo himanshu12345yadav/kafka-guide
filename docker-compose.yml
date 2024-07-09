@@ -1,0 +1,57 @@
+version: "3.9"
+
+services:
+  application:
+    container_name: "kafka-application"
+    hostname: "kafka-server"
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ./src:/app/src
+    environment:
+      SPRING_PROFILES_ACTIVE: dev
+    ports:
+      - "8080:8080"
+    networks:
+      kafka-network:
+        - aliases:
+            - "kafka-app"
+  kafka:
+    container_name: "kafka-server"
+    hostname: kafka
+    image: "confluentinc/cp-kafka:latest"
+    ports:
+      - "9092:9092"
+    depends_on:
+      - zookeeper
+    environment:
+      KAFKA_BROKER_ID: 1
+      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka:9092
+      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+      KAFKA_GROUP_INITIAL_REBALANCE_DELAY_MS: 0
+    networks:
+      kafka-network:
+        - aliases:
+            - "kafka-app"
+  zookeeper:
+    container_name: "kafka-zookeeper"
+    hostname: "zookeeper"
+    image: "confluentinc/cp-zookeeper:latest"
+    ports:
+      - "2181:2181"
+    networks:
+      kafka-network:
+        - aliases:
+            - "kafka-app"
+
+networks:
+  kafka-network:
+    driver: bridge
+    external: false
+    name: "kafka-network"
+
+volumes:
+  kafka-volume:
+    name: "kafka-volume"

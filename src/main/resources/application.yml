@@ -1,0 +1,8 @@
+spring:
+  application:
+    name: "kafka"
+kafka:
+  topic:
+    name: "kafka-topic"
+    json:
+      name: "kafka-json-topic"

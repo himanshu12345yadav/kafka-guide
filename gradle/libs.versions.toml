@@ -1,0 +1,23 @@
+[versions]
+spring-boot = "3.3.1"
+spring-dependency = "1.1.5"
+okhttp = "4.12.0"
+
+[libraries]
+spring-jpa = { group = "org.springframework.boot", name = "spring-boot-starter-data-jpa" }
+spring-web = { group = "org.springframework.boot", name = "spring-boot-starter-web" }
+spring-kafka = { group = "org.springframework.kafka", name = "spring-kafka" }
+lombok = { group = "org.projectlombok", name = "lombok" }
+spring-devtools = { group = "org.springframework.boot", name = "spring-boot-devtools" }
+spring-test = { group = "org.springframework.boot", name = "spring-boot-starter-test" }
+spring-kafka-test = { group = "org.springframework.kafka", name = "spring-kafka-test" }
+spring-junit = { group = "org.junit.platform", name = "junit-platform-launcher" }
+spring-actuator = { group = "org.springframework.boot", name = "spring-boot-starter-actuator" }
+
+
+okhttp = { group = "com.squareup.okhttp3", name = "okhttp", version.ref = "okhttp" }
+okhttp-sse = { group = "com.squareup.okhttp3", name = "okhttp-sse", version.ref = "okhttp" }
+
+[plugins]
+spring-boot = { id = "org.springframework.boot", version.ref = "spring-boot" }
+spring-dependency = { id = "io.spring.dependency-management", version.ref = "spring-dependency" }
