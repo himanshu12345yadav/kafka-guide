@@ -8,7 +8,7 @@ COPY gradlew ./
 COPY gradle/ ./gradle/
 
 # Copy the source code
-COPY src .
+COPY . .
 
 # Expose the default tomcat port
 EXPOSE 8080

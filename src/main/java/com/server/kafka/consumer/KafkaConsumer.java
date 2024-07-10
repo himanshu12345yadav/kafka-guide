@@ -10,15 +10,15 @@ import org.springframework.stereotype.Service;
 @Service
 public class KafkaConsumer {
 
-    @Value("${kafka.topic.name}")
-    private static String topicName;
+    @Value("${kafka.topic.default.name}")
+    private String topicName;
 
-    @Value("${kakfa.group.name}")
-    private static String groupId;
+    @Value("${spring.kafka.consumer.group-id}")
+    private String groupId;
 
     private static final Logger logger = LoggerFactory.getLogger(KafkaConsumer.class);
 
-    @KafkaListener(topics = "${kafka.topic.name}", groupId = "${kafka.group.name}")
+    @KafkaListener(topics = "${kafka.topic.default.name}", groupId = "${spring.kafka.consumer.group-id}")
     public void consume(String message) {
         logger.info(String.format("Message received , %s", message));
     }

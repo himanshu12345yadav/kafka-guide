@@ -3,6 +3,11 @@ spring:
     name: "kafka"
 kafka:
   topic:
-    name: "kafka-topic"
+    default:
+      name: "kafka-topic"
     json:
       name: "kafka-json-topic"
+    wikimedia:
+      name: "wikimedia-topic"
+  sse:
+    url: "https://stream.wikimedia.org/v2/stream/recentchange"

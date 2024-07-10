@@ -24,7 +24,7 @@ repositories {
 }
 
 dependencies {
-    implementation(libs.spring.jpa)
+//    implementation(libs.spring.jpa)
     implementation(libs.spring.web)
     implementation(libs.spring.kafka)
     compileOnly(libs.lombok)
@@ -36,6 +36,8 @@ dependencies {
     implementation(libs.spring.actuator)
     implementation(libs.okhttp)
     implementation(libs.okhttp.sse)
+    implementation(libs.jackson.core)
+    implementation(libs.jackson.databind)
 }
 
 tasks.withType<Test> {

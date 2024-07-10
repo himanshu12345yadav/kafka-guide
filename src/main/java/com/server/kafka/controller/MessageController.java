@@ -3,13 +3,13 @@ package com.server.kafka.controller;
 
 import com.server.kafka.producer.KafkaProducer;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 
-@Controller
-@RequestMapping("/kafka/default")
+@RestController
+@RequestMapping("/kafka/default/")
 public class MessageController {
 
     private final KafkaProducer kafkaProducer;

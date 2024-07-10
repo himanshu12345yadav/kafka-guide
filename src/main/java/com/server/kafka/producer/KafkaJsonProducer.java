@@ -18,7 +18,7 @@ public class KafkaJsonProducer {
     private static final Logger logger = LoggerFactory.getLogger(KafkaJsonProducer.class);
 
     @Value("${kafka.topic.json.name}")
-    private static String topicName;
+    private String topicName;
 
     private final KafkaTemplate<String, KafkaMessage> kafkaTemplate;
 

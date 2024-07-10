@@ -9,10 +9,10 @@ import org.springframework.stereotype.Service;
 @Service
 public class KafkaProducer {
 
-    @Value("{kafka.topic.name}")
+    @Value("${kafka.topic.default.name}")
     private String topicName;
 
-    private KafkaTemplate<String, String> kafkaTemplate;
+    private final KafkaTemplate<String, String> kafkaTemplate;
 
     private static final Logger logger = LoggerFactory.getLogger(KafkaProducer.class);
 
